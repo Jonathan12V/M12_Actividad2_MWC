@@ -1,0 +1,20 @@
+dispositius mobils
+    smartphenes
+        marca
+        model
+        preu base
+
+        SO
+        caracteristiques HW (acelerometre, GPS)
+    tablets
+        marca
+        model
+        preu base
+
+        num. polsadors
+    altres dispositius
+        marca
+        model
+        preu base
+
+        descripcio

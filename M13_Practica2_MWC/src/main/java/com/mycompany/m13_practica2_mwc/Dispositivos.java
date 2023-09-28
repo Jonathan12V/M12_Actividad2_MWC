@@ -7,6 +7,8 @@ public class Dispositivos {
     protected double preuBase;
 
 
+    public Dispositivos(){}
+
     public Dispositivos(String marca, String model, double preuBase) {
         this.marca = marca;
         this.model = model;

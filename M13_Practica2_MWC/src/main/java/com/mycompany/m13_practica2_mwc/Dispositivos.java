@@ -6,11 +6,9 @@ public class Dispositivos {
     protected String model;
     protected double preuBase;
 
-
     public Dispositivos(){
         
     }
-
     public Dispositivos(String marca, String model, double preuBase) {
         this.marca = marca;
         this.model = model;

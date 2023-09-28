@@ -1,5 +1,6 @@
 package com.mycompany.m13_practica2_mwc;
 
+// Clase Dispositivos
 public class Dispositivos {
     protected  String  marca;
     protected String model;

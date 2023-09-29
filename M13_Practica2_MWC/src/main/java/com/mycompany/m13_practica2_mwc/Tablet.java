@@ -5,7 +5,7 @@ package com.mycompany.m13_practica2_mwc;
 public class Tablet extends Dispositivos implements GammaAlta {
     private int polzades;
 
-    public Tablet(String marca, String modelo, Double preuBase, int polzades){
+    public Tablet(String marca, String modelo, double preuBase, int polzades){
         super(marca, modelo, preuBase);
         this.polzades = polzades;
     } 
@@ -43,7 +43,7 @@ public class Tablet extends Dispositivos implements GammaAlta {
     //una tablet en una frase
     @Override
     public String toString() {
-        return "Tablet [polzades=" + polzades + "]";
+        return "Tablet{" + "marca=" + marca + ",model =" + model + ", preu Base= " + preuBase + "polzades=" + polzades + "}";
     }
 
 }

@@ -1,32 +1,26 @@
 package com.mycompany.m13_practica2_mwc;
 
+// Declaración de la clase Smartphone, que extiende de la clase Dispositivos 
+// e implementa la interfaz GammaAlta
 public class Smartphone extends Dispositivos implements GammaAlta {
     
+    // Declarar variables privadas de la clase Smartphone
     private String sistema_operativo;
     private boolean accelerometro;
     private boolean gps;
 
-    public Smartphone(String marca, String model, double preuBase, String sistema_operativo, boolean accelerometro, boolean gps) {
-        this.marca = marca;
-        this.model = model;
-        this.preuBase = preuBase;
+    // Constructor de la clase Smartphone que toma varios parámetros
+    public Smartphone(String marca, String model, double preuBase, String sistema_operativo, 
+            boolean accelerometro, boolean gps) {
+        // Llama al constructor de la clase base Dispositivos utilizando super
+        super(marca, model, preuBase);
+        // Inicialitza las variables con los valores pasados
         this.sistema_operativo = sistema_operativo;
         this.accelerometro = accelerometro;
         this.gps = gps;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getPreuBase() {
-        return preuBase;
-    }
-
+    // Métodos getter y setter para las variables miembro
     public String getSistema_operativo() {
         return sistema_operativo;
     }
@@ -37,18 +31,6 @@ public class Smartphone extends Dispositivos implements GammaAlta {
 
     public boolean isGps() {
         return gps;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setPreuBase(double preuBase) {
-        this.preuBase = preuBase;
     }
 
     public void setSistema_operativo(String sistema_operativo) {
@@ -63,39 +45,37 @@ public class Smartphone extends Dispositivos implements GammaAlta {
         this.gps = gps;
     }
     
-    public Double precioDoble(double precioBase) {
+    // Método que calcula el precio final del Smartphone
+    public double getPrecioFinal() {
         
-        double precioFinal = 0;
+        double precioFinal = getPreuBase();
         
-        if (accelerometro && gps) {
-            precioFinal = precioBase * 1.10;
+        // Si el Smartphone tiene accelerometro
+        if (accelerometro) {
+            precioFinal *= 1.10;
+            // Si tambien tiene GPS, se aplica un aumento adicional al precio
+            if(gps) {
+                precioFinal *= 1.05;
+            }
         }
-        else if(accelerometro) {
-            double precio2 = precioBase * 1.05;
-            
-            precio2 = precioBase-precio2;
-            
-            precioFinal += precio2;
-        }
+        
+        // Redondea el precio final a dos decimales
+        precioFinal = Math.round(precioFinal * 100.0) / 100.0;
         
         return precioFinal;    
     }
 
-    public Boolean isGammaAlta(boolean gammaAlta, double precioFinal ) {
-        if (precioFinal > 700) {
-            gammaAlta = true;
-        }
-        
-        return gammaAlta;
+    // Implementación del método de la interfaz GammaAlta
+    @Override
+    public Boolean isGammaAlta() {
+        // Comprueba si el precio final es mayor que 700, devuelve true o false.
+        return getPrecioFinal() > 700;
+
     }
    
+    // Sobreescribe el método toString para proporcionar una representación en cadena de texto
     @Override
     public String toString() {
         return "Smartphone{" + "marca=" + marca + ", model=" + model + ", preuBase=" + preuBase + ", sistema_operativo=" + sistema_operativo + ", accelerometro=" + accelerometro + ", gps=" + gps + '}';
-    }
-
-    @Override
-    public Boolean isGammaAlta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }    
+    }  
 }

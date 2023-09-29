@@ -43,7 +43,7 @@ public class Tablet extends Dispositivos implements GammaAlta {
     //una tablet en una frase
     @Override
     public String toString() {
-        return "Tablet [polzades=" + polzades + "]";
+        return "Tablet{" + "marca=" + marca + ",model =" + model + ", preu Base= " + preuBase + "polzades=" + polzades + "}";
     }
 
 }

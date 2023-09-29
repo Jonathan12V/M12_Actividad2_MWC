@@ -6,25 +6,12 @@ public class Smartphone extends Dispositivos implements GammaAlta {
     private boolean accelerometro;
     private boolean gps;
 
-    public Smartphone(String marca, String model, double preuBase, String sistema_operativo, boolean accelerometro, boolean gps) {
-        this.marca = marca;
-        this.model = model;
-        this.preuBase = preuBase;
+    public Smartphone(String marca, String model, double preuBase, String sistema_operativo, 
+            boolean accelerometro, boolean gps) {
+        super(marca, model, preuBase);
         this.sistema_operativo = sistema_operativo;
         this.accelerometro = accelerometro;
         this.gps = gps;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getPreuBase() {
-        return preuBase;
     }
 
     public String getSistema_operativo() {
@@ -39,18 +26,6 @@ public class Smartphone extends Dispositivos implements GammaAlta {
         return gps;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setPreuBase(double preuBase) {
-        this.preuBase = preuBase;
-    }
-
     public void setSistema_operativo(String sistema_operativo) {
         this.sistema_operativo = sistema_operativo;
     }
@@ -63,39 +38,31 @@ public class Smartphone extends Dispositivos implements GammaAlta {
         this.gps = gps;
     }
     
-    public Double precioDoble(double precioBase) {
+    public double getPrecioFinal() {
         
-        double precioFinal = 0;
+        double precioFinal = getPreuBase();
         
-        if (accelerometro && gps) {
-            precioFinal = precioBase * 1.10;
+        if (accelerometro) {
+            precioFinal *= 1.10;
+            if(gps) {
+                precioFinal *= 1.05;
+            }
         }
-        else if(accelerometro) {
-            double precio2 = precioBase * 1.05;
-            
-            precio2 = precioBase-precio2;
-            
-            precioFinal += precio2;
-        }
+        
+        precioFinal = Math.round(precioFinal * 100.0) / 100.0;
         
         return precioFinal;    
     }
 
-    public Boolean isGammaAlta(boolean gammaAlta, double precioFinal ) {
-        if (precioFinal > 700) {
-            gammaAlta = true;
-        }
-        
-        return gammaAlta;
+    @Override
+    public Boolean isGammaAlta() {
+
+        return getPrecioFinal() > 700;
+
     }
    
     @Override
     public String toString() {
         return "Smartphone{" + "marca=" + marca + ", model=" + model + ", preuBase=" + preuBase + ", sistema_operativo=" + sistema_operativo + ", accelerometro=" + accelerometro + ", gps=" + gps + '}';
-    }
-
-    @Override
-    public Boolean isGammaAlta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }    
+    }  
 }

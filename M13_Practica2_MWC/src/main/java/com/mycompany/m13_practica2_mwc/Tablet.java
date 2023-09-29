@@ -2,36 +2,40 @@ package com.mycompany.m13_practica2_mwc;
 
 //Classe tablet
 
-public class Tablet {
+public class Tablet extends Dispositivos implements GammaAlta {
     private int polzades;
-    private String id;
 
-    public Tablet(String id, int polzades){
-        this.id = id;
+    public Tablet(String marca, String modelo, Double preuBase, int polzades){
+        super(marca, modelo, preuBase);
         this.polzades = polzades;
     } 
-     public Tablet(String id){
-        this.id = id;
-    } 
+
      public Tablet(int polzades){
         this.polzades = polzades;
     } 
 
     //getter
-    public String getId() {
-        return id;
-    }
     public int getPolzades() {
         return polzades;
     }
 
     //setter
-    public void setId(String id) {
-        this.id = id;
+
+    public void setPolzades(int polzades) {
+        this.polzades = polzades;
     }
 
-    public void setDireccion(int polzades) {
-        this.polzades = polzades;
+    public Double preuFinal() {
+        return getPreuBase() * 2;
+    }
+
+    public Boolean isGammaAlta() {
+        return preuFinal() > 900;
+    }
+
+    @Override
+    public String toString() {
+        return "Tablet [polzades=" + polzades + "]";
     }
 
 }

@@ -28,7 +28,7 @@ public class Dispositvos {
         this.model = model;
     }
 
-    public int getPreuBase() {
+    public double getPreuBase() {
         return preuBase;
     }
 

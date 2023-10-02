@@ -1,12 +1,15 @@
 package com.mycompany.m13_practica2_mwc;
 
-public class Dispositvos {
+// Clase Dispositivos
+public class Dispositivos {
     protected  String  marca;
     protected String model;
     protected double preuBase;
 
-
-    public Dispositvos(String marca, String model, double preuBase) {
+    public Dispositivos(){
+        
+    }
+    public Dispositivos(String marca, String model, double preuBase) {
         this.marca = marca;
         this.model = model;
         this.preuBase = preuBase;
@@ -32,7 +35,7 @@ public class Dispositvos {
         return preuBase;
     }
 
-    public void setPreuBase(int preuBase) {
+    public void setPreuBase(double preuBase) {
         this.preuBase = preuBase;
     }
 

@@ -1,6 +1,5 @@
 package com.mycompany.m13_practica2_mwc;
 
-
 public class OtrosDispositivos extends Dispositivos implements GammaAlta {
     
     private String descripcio;
@@ -30,5 +29,5 @@ public class OtrosDispositivos extends Dispositivos implements GammaAlta {
     public String toString() {
         return "OtrosDispositivos{" + "marca=" + marca + ", model =" + model + ", preuBase= " + preuBase + ", descripcio=" + descripcio + "}";
     }
-
+  
 }

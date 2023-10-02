@@ -29,5 +29,9 @@ public class OtrosDispositivos extends Dispositivos implements GammaAlta {
     public String toString() {
         return "OtrosDispositivos{" + "marca=" + marca + ", model =" + model + ", preuBase= " + preuBase + ", descripcio=" + descripcio + "}";
     }
-  
+
+    @Override
+    public Boolean isGammaAlta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
